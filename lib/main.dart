@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(scaffoldBackgroundColor: AppColors.primaryBgColor,
       appBarTheme: AppBarTheme(color: AppColors.primaryBgColor, iconTheme: const IconThemeData(color: Colors.white) )
       ),
-      home: const HomeScreen(),
+      home:  const HomeScreen(mockData: [],
+      ),
     );
   }
 }

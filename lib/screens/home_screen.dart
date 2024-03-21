@@ -7,7 +7,8 @@ import 'package:fitpage/widgets/loading.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.mockData});
+  final List mockData;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -27,24 +28,31 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isLoading = true;
 
   getData() async {
-    isLoading = true;
-    if (isErrorState == true) {
-      setState(() {
-        isErrorState = false;
-      });
-    }
-    try {
-      var res = await AppApis().getData();
-      if (res.statusCode == 200) {
-        data = res.data;
+    if (widget.mockData.isEmpty) {
+      isLoading = true;
+      if (isErrorState == true) {
         setState(() {
-          isLoading = false;
+          isErrorState = false;
         });
       }
-    } catch (e) {
+      try {
+        var res = await AppApis().getData();
+        if (res.statusCode == 200) {
+          data = res.data;
+          setState(() {
+            isLoading = false;
+          });
+        }
+      } catch (e) {
+        setState(() {
+          isErrorState = true;
+        });
+      }
+    } else {
       setState(() {
-        isErrorState = true;
+        isLoading = false;
       });
+      data = widget.mockData;
     }
   }
 

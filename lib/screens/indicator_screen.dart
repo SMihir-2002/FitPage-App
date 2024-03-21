@@ -21,14 +21,14 @@ class IndicatorScreen extends StatelessWidget {
             ),
             Text(
               "Set Paramaters",
-              style: AppTextStyles.heading.copyWith(fontWeight: FontWeight.w600),
+              style:
+                  AppTextStyles.heading.copyWith(fontWeight: FontWeight.w600),
             ),
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12), color: Colors.white),
-           
               child: Wrap(
                 children: [
                   Text(
@@ -36,11 +36,14 @@ class IndicatorScreen extends StatelessWidget {
                     style: AppTextStyles.heading.copyWith(color: Colors.black),
                   ),
                   TextField(
-                    controller: _indicatorController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(borderSide: const BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(5)),
-                      focusedBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.blue), borderRadius: BorderRadius.circular(5)))),
-                  
+                      controller: _indicatorController,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(color: Colors.blue),
+                              borderRadius: BorderRadius.circular(5)))),
                 ],
               ),
             ),
