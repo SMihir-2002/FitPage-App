@@ -8,7 +8,6 @@ class IndicatorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _indicatorController.text = indicatorData["default_value"].toString();
-    print(_indicatorController.text);
     return Scaffold(
       appBar: AppBar(),
       body: Padding(

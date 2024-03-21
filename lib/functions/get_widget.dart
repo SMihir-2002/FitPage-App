@@ -7,7 +7,7 @@ getWidget({required Map widgetData}) {
       case "plain_text":
         return PlainText(text: widgetData["text"]);
       case "variable":
-        return VariableWidget(data: widgetData);
+        return VariableWidget(varData: widgetData);
       default:
         return Container();
     }

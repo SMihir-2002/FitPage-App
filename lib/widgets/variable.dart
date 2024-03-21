@@ -6,12 +6,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class VariableWidget extends StatelessWidget {
-  const VariableWidget({super.key, required this.data});
-  final Map data;
+  const VariableWidget({super.key, required this.varData});
+  final Map varData;
 
   @override
   Widget build(BuildContext context) {
-    List textArray = stringSplitter(text: data["text"]);
+    List textArray = stringSplitter(text: varData["text"]);
     return RichText(
       text: TextSpan(
           children: List.generate(textArray.length, (i) {
@@ -25,7 +25,7 @@ class VariableWidget extends StatelessWidget {
   }
 
   textSpanWidget({required String text, required BuildContext context}) {
-    final String val = appendValue(valData: data["variable"][text], text: text);
+    final String val = appendValue(valData: varData["variable"][text], text: text);
 
     return TextSpan(
       text: val,
@@ -33,13 +33,13 @@ class VariableWidget extends StatelessWidget {
           .copyWith(color: Colors.blue, decoration: TextDecoration.underline),
       recognizer: TapGestureRecognizer()
         ..onTap = () {
-          switch (data["variable"][text]["type"]) {
+          switch (varData["variable"][text]["type"]) {
             case "value":
               Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) => ValueScreen(
-                          valueList: data["variable"][text]["values"],
+                          valueList: varData["variable"][text]["values"],
                         )),
               );
 
@@ -47,7 +47,7 @@ class VariableWidget extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => IndicatorScreen(indicatorData: data["variable"][text])),
+                    builder: (context) => IndicatorScreen(indicatorData: varData["variable"][text])),
               );
             
           }

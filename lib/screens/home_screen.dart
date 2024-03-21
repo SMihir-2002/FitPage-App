@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   getData() async {
     isLoading = true;
-    if (isErrorState = true) {
+    if (isErrorState == true) {
       setState(() {
         isErrorState = false;
       });
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: RefreshIndicator(
       onRefresh: () {
         getData();
-        return Future(() => null);
+        return Future(() => true);
       },
       child: isErrorState
           ? const ErrorWiget()
