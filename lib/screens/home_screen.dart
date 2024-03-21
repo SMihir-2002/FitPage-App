@@ -5,7 +5,6 @@ import 'package:fitpage/services/app_api.dart';
 import 'package:fitpage/widgets/error_state.dart';
 import 'package:fitpage/widgets/loading.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -67,9 +66,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
-                            Get.to(CriteriaScreen(
-                              data: data[index],
-                            ));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CriteriaScreen(
+                                          data: data[index],
+                                        )));
                           },
                           child: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 20),

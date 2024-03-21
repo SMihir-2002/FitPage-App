@@ -4,7 +4,6 @@ import 'package:fitpage/screens/indicator_screen.dart';
 import 'package:fitpage/screens/value_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class VariableWidget extends StatelessWidget {
   const VariableWidget({super.key, required this.data});
@@ -12,21 +11,20 @@ class VariableWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List m = stringSplitter(text: data["text"]);
-    print(m);
+    List textArray = stringSplitter(text: data["text"]);
     return RichText(
       text: TextSpan(
-          children: List.generate(m.length, (i) {
-        if (m[i].contains("\$")) {
-          return textSpanWidget(text: m[i]);
+          children: List.generate(textArray.length, (i) {
+        if (textArray[i].contains("\$")) {
+          return textSpanWidget(text: textArray[i], context: context);
         } else {
-          return TextSpan(text: m[i], style: AppTextStyles.heading);
+          return TextSpan(text: textArray[i], style: AppTextStyles.heading);
         }
       })),
     );
   }
 
-  textSpanWidget({required String text}) {
+  textSpanWidget({required String text, required BuildContext context}) {
     final String val = appendValue(valData: data["variable"][text], text: text);
 
     return TextSpan(
@@ -37,11 +35,21 @@ class VariableWidget extends StatelessWidget {
         ..onTap = () {
           switch (data["variable"][text]["type"]) {
             case "value":
-              Get.to(ValueScreen(
-                valueList: data["variable"][text]["values"],
-              ));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ValueScreen(
+                          valueList: data["variable"][text]["values"],
+                        )),
+              );
+
             case "indicator":
-              Get.to(IndicatorScreen(indicatorData:  data["variable"][text]));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => IndicatorScreen(indicatorData: data["variable"][text])),
+              );
+            
           }
         },
     );
