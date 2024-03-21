@@ -1,16 +1,50 @@
-# fitpage
+<p align="center">
+  <a>
+    <img width="100px" src="./assets/logo.png">
+  </a>
+  <h1 align="center">FitPage-App</h1>  
+</p>
 
-A new Flutter project.
+## Introduction
 
-## Getting Started
+Monitor Fitness and Diet with provided professional Traning for Marathons and Indians First integrated heart fitness platform.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## :camera_flash: Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div align="center" style="margin:auto;width:100%;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;">
+<img width="250px" margin="30px" style="margin:20px;" src="./assets/image0.png">
+<img width="250px" margin="30px" style="margin:20px;" src="./assets/image1.png">
+<img width="250px" margin="30px" style="margin:20px;" src="./assets/image2.png">
+<img width="250px" margin="30px" style="margin:20px;" src="./assets/image3.png">
+</div>
+
+<br>
+<br>
+
+## :sparkles: Unit testing
+
+<div align="center" style="margin:auto;width:100%;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;">
+<img src="./assets/unit-test.png">
+</div>
+
+## Development
+
+Make Sure you have [Flutter development environment setup](https://docs.flutter.dev/get-started/install)
+
+```bash
+# Install dependencies
+flutter pub get
+```
+
+```bash
+# Pod installation for ios
+cd ios && pod install
+```
+
+```bash
+# Run
+flutter run
+```
